@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html class='has-navbar-fixed-top'>
   <head>
     <title>QuizApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <nav class='navbar is-fixed-top is-primary' role='navigation' aria-label='main navigation'>
+      <div class='navbar-end'>
+        <div class='navbar-item'>
+          <div class='buttons'>
+            <% if user_signed_in? %>
+              <%= link_to 'Log Out', destroy_user_session_path, method: :delete,
+                  class: 'button is-primary' %>
+            <% else %>
+              <%= link_to 'Sign Up', new_user_registration_path, class: 'button is-primary' %>
+              <%= link_to 'Log In', new_user_session_path, class: 'button is-light' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
