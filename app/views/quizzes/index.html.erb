@@ -14,5 +14,5 @@
 <% if user_signed_in? %>
   <%= render 'quizzes/user_home' %>
 <% else %>
-  <%= render 'quizzes/home' %>
+  <%= render 'quizzes/home', quizzes: @quizzes %>
 <% end %>
