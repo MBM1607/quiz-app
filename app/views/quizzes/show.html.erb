@@ -29,7 +29,7 @@
 
 
 <% @quiz.questions.each do |question| %>
-  <div class='modal is-active'>
+  <div id='qmodal-<%= question.id %>' class='modal qmodal'>
     <div class='modal-background'></div>
     <div class='modal-card'>
       <header class='modal-card-head'>

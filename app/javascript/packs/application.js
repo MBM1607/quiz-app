@@ -6,6 +6,7 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
+import './quiz';
 import "channels"
 import 'bulma'
 
@@ -30,7 +31,7 @@ document.addEventListener('turbolinks:load', () => {
     const modal = elem.parentNode;
 
     elem.addEventListener('click', () => {
-      removeElement(modal);
+      modal.classList.toggle('is-active');
     });
   });
 
