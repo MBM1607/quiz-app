@@ -1,0 +1,22 @@
+<section class='section'>
+  <button class='button is-primary is-fullwidth is-large is-outlined block'>
+    Choose Random Quiz
+  </button>
+
+  <div class='columns is-multiline is-mobile'>
+    <% 5.times do |x| %>
+      <div class='card column is-half block'>
+        <header class='card-header'>
+          <button class='button is-info is-fullwidth is-large'>
+            Quiz <%= x + 1 %>
+          </button>
+        </header>
+        <div class='card-content'>
+          <p class='content'>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus distinctio molestias illum vitae quo magnam doloribus delectus aperiam porro soluta ea, voluptates, reprehenderit eaque enim quibusdam dolorum iste! Nobis, voluptas?
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

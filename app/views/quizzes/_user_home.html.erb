@@ -1,0 +1,21 @@
+<section class="section">
+  <%= link_to 'Create New Quiz', new_quiz_path,
+      class: 'button is-primary is-fullwidth is-large is-outlined block' %>
+
+  <div class='columns is-multiline is-mobile'>
+    <% current_user.quizzes.each do |quiz| %>
+      <div class='card column is-half block'>
+        <header class='card-header'>
+          <button class='button is-info is-fullwidth is-large'>
+            <%= quiz.name %>
+          </button>
+        </header>
+        <div class='card-content'>
+          <p class='content'>
+            <%= quiz.description %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

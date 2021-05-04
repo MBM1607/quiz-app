@@ -5,6 +5,7 @@ ruby '2.7.2'
 
 gem 'devise'
 gem 'bulma-rails', '~> 0.9.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'

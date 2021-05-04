@@ -12,3 +12,22 @@ import 'bulma'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach((elem) => {
+    const notification = elem.parentNode;
+
+    elem.addEventListener('click', () => {
+      removeElement(notification);
+    });
+
+    setTimeout(() => {
+      removeElement(notification);
+    }, 5000);
+  });
+
+});
+
+const removeElement = (elem) => {
+  elem.parentNode.removeChild(elem);
+};

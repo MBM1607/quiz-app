@@ -26,8 +26,18 @@
         </div>
       </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <div class='notice notification is-success'>
+        <button class='delete'></button>
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class='alert notification is-danger'>
+        <button class='delete'></button>
+        <%= alert %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
