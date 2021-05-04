@@ -13,7 +13,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   (document.querySelectorAll('.notification .delete') || []).forEach((elem) => {
     const notification = elem.parentNode;
 
@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       removeElement(notification);
     }, 5000);
+  });
+
+  (document.querySelectorAll('.modal .modal-close') || []).forEach((elem) => {
+    const modal = elem.parentNode;
+
+    elem.addEventListener('click', () => {
+      removeElement(modal);
+    });
   });
 
 });

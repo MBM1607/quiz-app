@@ -1,0 +1,31 @@
+<section class='section'>
+  <div class='content'>
+    <h1>
+      <%= @quiz.name %>
+    </h1>
+    <p>
+      <%= @quiz.description %>
+    </p>
+
+    <% @quiz.questions.each_with_index do |question, i| %>
+      <h2>Question No <%= i + 1 %></h2>
+      <blockquote>
+        <p><%= question.text %></p>
+        <% question.answers.each do |answer| %>
+          <div>
+            <% if answer.is_true %>
+              <span class='icon has-text-success'>
+                <i class='fa fa-check'></i>
+              </span>
+            <% else %>
+              <span class='icon has-text-danger'>
+                <i class='fa fa-ban'></i>
+              </span>
+            <% end %>
+            <%= answer.text %>
+          </div>
+        <% end %>
+      </blockquote>
+    <% end %>
+  </div>
+</section>

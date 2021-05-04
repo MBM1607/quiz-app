@@ -6,9 +6,8 @@
     <% current_user.quizzes.each do |quiz| %>
       <div class='card column is-half block'>
         <header class='card-header'>
-          <button class='button is-info is-fullwidth is-large'>
-            <%= quiz.name %>
-          </button>
+          <%= link_to quiz.name, edit_quiz_path(quiz.id),
+              class: 'button is-info is-fullwidth is-large' %>
         </header>
         <div class='card-content'>
           <p class='content'>

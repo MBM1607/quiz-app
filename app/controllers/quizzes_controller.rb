@@ -1,4 +1,7 @@
 class QuizzesController < ApplicationController
+  before_action :authenticate_user!,
+                except: [:index, :show, :quiz, :quiz_answer, :choose_random]
+
   def index
     @quizzes = Quiz.all
   end
@@ -15,6 +18,18 @@ class QuizzesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def show
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def choose_random
+    redirect_to quiz_path(Quiz.order('RANDOM()').first.id)
+  end
+
   private
 
   def quiz_params
@@ -23,4 +38,5 @@ class QuizzesController < ApplicationController
       questions_attributes: [:text, answers_attributes: [:text, :is_true]]
     )
   end
+
 end
