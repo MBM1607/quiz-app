@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_user!,
-                except: [:index, :show, :quiz, :quiz_answer, :choose_random]
+                only: [:create, :edit]
 
   def index
     @quizzes = Quiz.all
@@ -24,6 +24,14 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
+  end
+
+  def show_answer
+    @question = Question.find(params[:question_id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def choose_random

@@ -1,0 +1,22 @@
+if (typeof variable === 'undefined') {
+  let button = undefined
+}
+
+<% @question.answers.each do |answer| %>
+  button = document.getElementById('quiz-answer-<%= answer.id %>');
+
+  button.classList.remove('is-info');
+  <% if answer.is_true %>
+    button.classList.add('is-success')
+  <% else %>
+    button.classList.add('is-danger')
+  <% end %>
+<% end %>
+
+setTimeout(() => {
+  document.querySelectorAll('.quiz-answer').forEach(elem => {
+    elem.classList.remove('is-success');
+    elem.classList.remove('is-danger');
+    elem.classList.add('is-info');
+  });
+}, 2000);

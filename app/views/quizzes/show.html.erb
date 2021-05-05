@@ -39,12 +39,15 @@
         <div class='columns is-multiline is-mobile is-10'>
           <% question.answers.each do |answer| %>
             <div class='column is-half'>
-              <button id='quiz-answer' class='button is-info is-large is-fullwidth'>
+              <button id='quiz-answer-<%= answer.id %>' class='button is-info is-large is-fullwidth quiz-answer'>
                 <%= answer.text %>
               </button>
             </div>
           <% end %>
         </div>
+        <%= link_to 'Show Correct Answer', show_answer_path(question.id),
+            class: 'button is-info is-large is-fullwidth is-outlined',
+            remote: true %>
       </section>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
