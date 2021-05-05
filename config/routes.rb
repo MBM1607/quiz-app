@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :quizzes
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    confirmations: 'users/confirmations',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
 
   root 'quizzes#index'
 

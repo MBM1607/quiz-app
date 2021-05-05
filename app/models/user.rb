@@ -6,4 +6,9 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :quizzes
+
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize: '100x100'
+  end
+
 end
